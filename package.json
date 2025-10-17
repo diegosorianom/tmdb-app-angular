@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy": "ng build --configuration=production && npx netlify-cli deploy --dir=dist/tmdb-app-angular/browser --prod"
   },
   "prettier": {
     "printWidth": 100,
