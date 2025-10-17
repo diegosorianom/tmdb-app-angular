@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./assets/fonts/satoshi/Satoshi-Variable.woff2') format('woff2'),
+       url('./assets/fonts/satoshi/Satoshi-Variable.woff') format('woff');
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./assets/fonts/satoshi/Satoshi-VariableItalic.woff2') format('woff2'),
+       url('./assets/fonts/satoshi/Satoshi-VariableItalic.woff') format('woff');
+  font-weight: 300 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+body {
+    font-family: 'Satoshi', sans-serif;
+}
