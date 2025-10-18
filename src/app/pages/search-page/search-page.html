@@ -1,3 +1,3 @@
 <app-return-component pageName="Search" />
 
-<app-search-bar />
+<app-search-bar [placeholder]="'Buscar peliculas...'" (search)="onSearch($event)" />

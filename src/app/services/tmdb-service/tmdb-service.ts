@@ -24,7 +24,7 @@ export class TmdbService {
   searchMovies(query: string, page: number = 1): Observable<MovieResponse> {
     return this.http.get<MovieResponse>(this.functionUrl, {
       params: {
-        path: '/search/movie',
+        path: 'search/movie',
         language: 'es-ES',
         page: page.toString(),
         query: query
