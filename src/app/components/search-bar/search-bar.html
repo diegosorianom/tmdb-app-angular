@@ -1,0 +1,24 @@
+<div class="relative">
+  <input 
+    type="text"
+    [value]="searchTerm()"
+    (input)="onInputChange($event)"
+    [placeholder]="placeholder()"
+    class="search-bar w-full rounded-md p-2 outline-0 pr-10"
+  >
+
+  <div class="absolute right-2 top-1/2 transform -translate-y-1/2">
+    @if (searchTerm().length > 0) {
+      <button
+        (click)="searchTerm.set(''); search.emit('')"
+        class="flex items-center justify-center"
+      >
+        <ng-icon name="phosphorX" />
+      </button>
+    } @else {
+      <div class="flex items-center justify-center">
+        <ng-icon name="phosphorMagnifyingGlass" />
+      </div>
+    }
+  </div>
+</div>
