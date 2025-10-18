@@ -13,6 +13,7 @@ import { TmdbService } from '../../services/tmdb-service/tmdb-service';
 export class SearchPage {
   movies = signal<Movie[]>([])
   searchHistory = signal<string[]>([])
+  isLoading = signal(false)
 
   constructor(private tmdb: TmdbService) {}
 
@@ -28,6 +29,7 @@ export class SearchPage {
     }
 
     console.log('Buscando peliculas:', term)
+    this.isLoading.set(true)
 
     this.addToHistory(term.trim())
 
@@ -35,8 +37,12 @@ export class SearchPage {
       next: (response) => {
         console.log('Resultados:', response.results)
         this.movies.set(response.results)
+        this.isLoading.set(false)
       },
-      error: (error) => console.error('Error en la búsqueda:', error)
+      error: (error) => {
+        console.error('Error en la búsqueda:', error)
+        this.isLoading.set(false)
+      }
     })
   }
 

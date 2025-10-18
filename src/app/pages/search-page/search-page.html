@@ -7,7 +7,13 @@
       (search)="onSearch($event)" 
     />
 
-    @if (movies().length === 0) {
+    @if (isLoading()) {
+      <div class="py-10 flex justify-center items-center">
+        <div class="animate-spin rounded-md h-12 w-12 border-b-2 bg-zinc-900"></div>
+      </div>
+    }
+
+    @if (!isLoading() && movies().length === 0) {
       <div class="py-10">
         <div class="flex flex-row justify-between">
           <h2 class="text-xl font-semibold mb-4">Búsquedas recientes</h2>
@@ -33,7 +39,7 @@
       </div>
     }
 
-    @if (movies().length > 0) {
+    @if (!isLoading() && movies().length > 0) {
       <div class="mt-8">
         <h2 class="text-xl font-semibold  mb-4">
           Resultados de búsqueda ({{ movies().length }})
