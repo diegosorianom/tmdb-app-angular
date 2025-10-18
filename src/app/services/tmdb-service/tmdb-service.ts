@@ -1,23 +1,21 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TmdbService {
-  private apiUrl = environment.apiUrl
-  private apiKey = environment.apiKey
+  private functionUrl = '/.netlify/functions/tmdb'; // endpoint de tu Netlify Function
 
   constructor(private http: HttpClient) {}
 
   getPopularMovies(page: number = 1) {
-    return this.http.get(`${this.apiUrl}/movie/popular`, {
+    return this.http.get(this.functionUrl, {
       params: {
-        api_key: this.apiKey,
+        path: '/movie/popular',
         language: 'es-ES',
         page: page.toString()
       }
-    })
+    });
   }
 }
