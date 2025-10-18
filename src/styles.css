@@ -60,3 +60,9 @@ button {
   color: var(--foreground);
   cursor: pointer;
 }
+
+.movie-card {
+  aspect-ratio: 3/4;
+  background-color: var(--button-bg); /* bg-gray-200 */
+  border-radius: 0.5rem; /* rounded-lg */
+}
