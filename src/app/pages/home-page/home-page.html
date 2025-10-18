@@ -1,1 +1,16 @@
-<p>home-page works!</p>
+<h1>🎬 Películas populares</h1>
+
+@if (loading()) {
+  <p>Cargando películas...</p>
+} @else if (error()) {
+  <p style="color: red;">{{ error() }}</p>
+} @else {
+  <ul>
+    @for (movie of movies(); track movie.id) {
+      <li>
+        <strong>{{ movie.title }}</strong><br>
+        <small>{{ movie.release_date }}</small>
+      </li>
+    }
+  </ul>
+}
