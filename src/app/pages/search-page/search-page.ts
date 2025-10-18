@@ -32,4 +32,9 @@ export class SearchPage {
       error: (error) => console.error('Error en la búsqueda:', error)
     })
   }
+
+  getMovieYear(releaseDate: string | null): string {
+    if (!releaseDate) return ''
+    return releaseDate.substring(0, 4)
+  }
 }

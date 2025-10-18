@@ -1,3 +1,37 @@
-<app-return-component pageName="Search" />
+<div class="">
+  <app-return-component pageName="Search" />
+  
+  <div class="max-w-4xl mx-auto mt-6">
+    <app-search-bar 
+      [placeholder]="'Buscar películas...'" 
+      (search)="onSearch($event)" 
+    />
 
-<app-search-bar [placeholder]="'Buscar peliculas...'" (search)="onSearch($event)" />
+    @if (movies().length === 0) {
+      <div class="py-10">
+        <p class="text-lg">
+          placeholder historial
+        </p>
+      </div>
+    }
+
+    @if (movies().length > 0) {
+      <div class="mt-8">
+        <h2 class="text-xl font-semibold  mb-4">
+          Resultados de búsqueda ({{ movies().length }})
+        </h2>
+        
+        <div>
+          @for (movie of movies(); track movie.id) {
+            <div class="py-4">
+              <div class="flex justify-between items-end border-b-1">
+                <p class="font-medium w-3/4"> {{ movie.title }}</p>
+                <p class="text-sm">{{getMovieYear(movie.release_date)}}</p>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</div>
