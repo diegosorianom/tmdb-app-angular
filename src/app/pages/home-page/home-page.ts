@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { TmdbService } from '../../services/tmdb-service/tmdb-service';
+import { MovieList } from "../../components/movie-list/movie-list";
 
 @Component({
   selector: 'app-home-page',
-  imports: [],
+  imports: [MovieList],
   templateUrl: './home-page.html',
   styleUrl: './home-page.css'
 })
