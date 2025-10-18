@@ -1,6 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { Movie } from '../../models/movie.model';
 import { TmdbService } from '../../services/tmdb-service/tmdb-service';
+import { LocalStorageService } from '../../services/localStorage-service/local-storage-service';
 
 @Component({
   selector: 'app-movie-list',
@@ -10,6 +11,7 @@ import { TmdbService } from '../../services/tmdb-service/tmdb-service';
 })
 export class MovieList {
   private tmdbService = inject(TmdbService);
+  private localStorageService = inject(LocalStorageService)
   
   movies = signal<any[]>([]);
   isLoading = signal(true);
@@ -29,5 +31,10 @@ export class MovieList {
         this.isLoading.set(false);
       }
     });
+  }
+
+  onMovieClick(movie: any) {
+    this.localStorageService.addToFavorites(movie)
+    console.log('Pelicula guardada: ', movie.title)
   }
 }
