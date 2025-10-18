@@ -18,6 +18,29 @@
   font-display: swap;
 }
 
+:root {
+  --background: #f1f5f9;
+  --foreground: #18181b;
+  --selection-bg: #18181b;
+  --selection-text: #f1f5f9;
+}
+
+.dark {
+  --background: #18181b;
+  --foreground: #f1f5f9;
+  --selection-bg: #f1f5f9;
+  --selection-text: #18181b;
+}
+
 body {
     font-family: 'Satoshi', sans-serif;
+    color: var(--foreground);
+    background-color: var(--background);
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+::selection {
+  background-color: var(--selection-bg);
+  color: var(--selection-text);
+  text-shadow: none;
 }

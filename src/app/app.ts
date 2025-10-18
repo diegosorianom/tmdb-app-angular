@@ -1,15 +1,12 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-
-import { NgIcon, provideIcons } from '@ng-icons/core';
-import { phosphorAcorn } from '@ng-icons/phosphor-icons/regular'
+import { ThemeToggle } from "./components/utils/theme-toggle/theme-toggle";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NgIcon],
+  imports: [RouterOutlet, ThemeToggle],
   templateUrl: './app.html',
-  styleUrl: './app.css',
-  viewProviders: [provideIcons({ phosphorAcorn})]
+  styleUrl: './app.css'
 })
 export class App {
   protected readonly title = signal('tmdb-app-angular');
