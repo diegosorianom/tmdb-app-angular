@@ -1,12 +1,15 @@
 import { Component, signal } from '@angular/core';
 import { TmdbService } from '../../services/tmdb-service/tmdb-service';
-import { MovieList } from "../../components/movie-list/movie-list";
+import { NgIcon, provideIcons } from "@ng-icons/core";
+import { phosphorFunnelSimple, phosphorMagnifyingGlass } from '@ng-icons/phosphor-icons/regular'
+import { phosphorMonitorPlayFill } from '@ng-icons/phosphor-icons/fill'
 
 @Component({
   selector: 'app-home-page',
-  imports: [MovieList],
+  imports: [NgIcon],
   templateUrl: './home-page.html',
-  styleUrl: './home-page.css'
+  styleUrl: './home-page.css',
+  viewProviders: [provideIcons({ phosphorFunnelSimple, phosphorMagnifyingGlass, phosphorMonitorPlayFill })]
 })
 export class HomePage {
   movies = signal<any[]>([])

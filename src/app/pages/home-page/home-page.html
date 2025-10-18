@@ -1,1 +1,21 @@
-<app-movie-list />
+<main>
+    <section class="flex flex-col gap-5">
+        <div>
+            <h1 class="font-bold text-xl">My Movies</h1>
+            <p>14 films</p>
+        </div>
+        <div class="flex flex-row gap-5">
+            <button class="flex flex-row gap-2 items-center px-5 rounded-sm">
+                <p>Sort</p>
+                <ng-icon name="phosphorFunnelSimple "/>
+            </button>
+            <button class="h-7 w-7 rounded-sm flex justify-center items-center">
+                <ng-icon name="phosphorMagnifyingGlass" />
+            </button>
+        </div>
+        <button class="w-full py-2 rounded-sm flex flex-row gap-2 items-center justify-center text-xl">
+            <p>Choose Movie</p>
+            <ng-icon name="phosphorMonitorPlayFill"/>
+        </button>
+    </section>
+</main>
