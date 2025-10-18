@@ -44,6 +44,11 @@ export class SearchPage {
     this.onSearch(searchTerm)
   }
 
+  clearHistory() {
+    this.searchHistory.set([])
+    localStorage.removeItem('movieSearchHistory')
+  }
+
   private addToHistory(searchTerm: string) {
     const currentHistory = this.searchHistory()
 

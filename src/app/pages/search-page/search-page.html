@@ -9,7 +9,12 @@
 
     @if (movies().length === 0) {
       <div class="py-10">
-        <h2 class="text-xl font-semibold mb-4">Búsquedas recientes</h2>
+        <div class="flex flex-row justify-between">
+          <h2 class="text-xl font-semibold mb-4">Búsquedas recientes</h2>
+          @if (searchHistory().length > 0) {
+            <p (click)="clearHistory()" class="cursor-pointer hover:font-medium delay-100 transition-all duration-75">Despejar historial</p>
+          }
+        </div>
 
         @if (searchHistory().length === 0) {
           <p>No hay búsquedas recientes</p>
@@ -18,7 +23,7 @@
             @for (searchTerm of searchHistory(); track $index) {
               <button
                 (click)="searchFromHistory(searchTerm)"
-                class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm transition-colors"
+                class="px-4 py-2 rounded-full text-sm transition-all duration-75 delay-100 hover:font-bold"
                 >
                 {{ searchTerm }}
               </button>
